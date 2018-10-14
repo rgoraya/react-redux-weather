@@ -12,7 +12,7 @@ const CityBanner = (props) => {
             <h6 className="mb-0">{props.weatherData.name}, {props.weatherData.sys.country}.</h6>
             <TimeUpdated timestamp={props.weatherData.dt} />
           </div>
-          <GooglePlacesImage weatherData={props.weatherData}/>
+          <GooglePlacesImage weatherData={props.weatherData} imgUrl={null}/>
         </div>
       ) : (
         null

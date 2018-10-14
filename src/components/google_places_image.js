@@ -7,7 +7,7 @@ export default class GooglePlacesImage extends Component {
     super(props)
 
     this.state = {
-      imgUrl: '',
+      imgUrl: this.props.imgUrl,
       imgLoaded: false
     }
 
@@ -19,16 +19,18 @@ export default class GooglePlacesImage extends Component {
     this.renderGooglePlacesImg();
   }
 
-  componentDidUpdate() {
-    this.renderGooglePlacesImg();
+  componentDidUpdate(prevProps) {
+    if (prevProps.weatherData.name !== this.props.weatherData.name) {
+      this.setState({imgUrl: null});
+      this.renderGooglePlacesImg();
+    } 
   }
 
   render() {
-    console.log(this.state.imgLoaded)
     return (
       <div>
         <div className="d-none" ref="map"></div>
-        <img className={`w-100 h-100 position-absolute ${this.state.imgLoaded ? "d-inline" : "d-none"}`} 
+        <img className={`w-100 h-100 position-absolute ${(this.state.imgLoaded && this.state.imgUrl !== null) ? "d-inline" : "d-none"}`} 
           src = {this.state.imgUrl} 
           alt="google places representation" 
           onLoad={this.onPlacesImageLoaded} 
@@ -61,7 +63,7 @@ export default class GooglePlacesImage extends Component {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       let imgUrl = results[0].photos[0].getUrl({'maxWidth': 600, 'min-height': 250})
       this.setState({imgUrl})
-    }
+    } 
   }
 
   onPlacesImageLoaded() {
