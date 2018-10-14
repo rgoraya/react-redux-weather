@@ -5,7 +5,7 @@ const TimeUpdated = (props) => {
   let date = new Date(props.timestamp * 1000);
 
   return (
-    <p className="text-muted mb-0">{dayOfWeek(date.getDay())} <FormattedTime timestamp={props.timestamp} /></p>
+    <small>{dayOfWeek(date.getDay())} <FormattedTime timestamp={props.timestamp} /></small>
   )
 }
 

@@ -10,5 +10,6 @@ https://rgoraya.github.io/react-redux-weather/
 - [JavaScript](https://developer.mozilla.org/en/JavaScript)
 - [ES6](http://es6-features.org/#Constants)
 - [Bootstrap 4](https://getbootstrap.com/)
-- [openweathermap API](https://openweathermap.org/)
+- [Openweathermap API](https://openweathermap.org/)
+- [Google Places API](https://developers.google.com/places/web-service/intro)
 - [Create React App](https://github.com/facebookincubator/create-react-app)

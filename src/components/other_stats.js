@@ -3,12 +3,32 @@ import FormattedTime from './formatted_time'
 
 const OtherStats = (props) => {
   return (
-    <p className="text-muted text-center mb-0">
-      <span className="oi oi-timer mr-2"></span>{props.weatherData.main.pressure}kPa 
-      <span className="oi oi-droplet mr-2 ml-2"></span>{props.weatherData.main.humidity}% 
-      <span className="oi oi-sun mr-2 ml-2"></span><FormattedTime timestamp={props.weatherData.sys.sunrise} /> 
-      <span className="oi oi-star mr-2 ml-2"></span><FormattedTime timestamp={props.weatherData.sys.sunset} />
-    </p>
+    <div id="statsGradient" className="p-4">
+      <table id="statsTable" className="table table-sm mb-0">
+        <tbody>
+          <tr>
+            <th scope="row"><span className="oi oi-timer"></span></th>
+            <td>Pressure</td>
+            <td className="text-right">{props.weatherData.main.pressure}kPa</td>
+          </tr>
+          <tr>
+            <th scope="row"><span className="oi oi-droplet"></span></th>
+            <td>Humidity</td>
+            <td className="text-right">{props.weatherData.main.humidity}%</td>
+          </tr>
+          <tr>
+            <th scope="row"><span className="oi oi-sun"></span></th>
+            <td>Sunrise</td>
+            <td className="text-right"><FormattedTime timestamp={props.weatherData.sys.sunrise} /> </td>
+          </tr>
+          <tr>
+            <th scope="row"><span className="oi oi-star"></span></th>
+            <td>Sunset</td>
+            <td className="text-right"><FormattedTime timestamp={props.weatherData.sys.sunset} /> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   )
 }
 

@@ -12,15 +12,17 @@ class SearchBar extends Component {
   
   render () {
     return (
-        <div className="card-header py-4">
-        <form onSubmit={ (e) => {this.handleSubmit(e)} }>
-          <div className="input-group mx-auto">
-            <input type="text" className="form-control bg-dark font-weight-light text-light border border-secondary" placeholder="Search for the city" 
-              value={this.state.cityStr}
-              onChange={ (e) => this.handleChange(e) } 
-            />
+        <div className="card-header py-3">
+          <form onSubmit={ (e) => {this.handleSubmit(e)} }>
+            <div className="input-group mx-auto">
+              <input type="text" className="form-control bg-dark font-weight-light text-light border  border-secondary" placeholder="Search for a city" 
+                value={this.state.cityStr}
+                onChange={ (e) => this.handleChange(e) } 
+              />
             <div className="input-group-append">
-              <button type="submit" className="btn btn-outline-secondary">Search</button>
+              <button type="submit" className="btn btn-dark border border-secondary">
+                <span className="oi oi-magnifying-glass"></span>
+              </button>
             </div>
           </div>
         </form>
@@ -36,6 +38,10 @@ class SearchBar extends Component {
   
   handleChange(e) {
     this.setState({cityStr: e.target.value});
+  }
+
+  componentDidMount() {
+    this.props.fetchCityWeather(this.props.defaultCity);
   }
 }
 

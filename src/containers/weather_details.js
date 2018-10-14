@@ -4,7 +4,7 @@ import '../styles/owfont-regular.min.css';
 
 import Temperature from '../components/temperature'
 import WeatherDescription from '../components/weather_description'
-import GoogleMap from '../components/google_map'
+import CityBanner from '../components/city_banner'
 import OtherStats from '../components/other_stats'
 
 class WeatherDetails extends Component {
@@ -13,27 +13,16 @@ class WeatherDetails extends Component {
     if (weatherData.length === 0) {
       return (
         <div className="card-body text-center text-light">
-          Please search for a city to see its weather
+          <CityBanner />
         </div>
       )
     } else {      
       return (
-        <div>
-          <div className="card-body text-light">
-            <h2 className="font-weight-light text-right">{weatherData.name}</h2>
-            <div className="row">
-              <div className="col-sm-6 mt-4">
-                <WeatherDescription weatherData={weatherData} />
-                <Temperature weatherData={weatherData} />
-              </div>
-              <div className="col-sm-6 mt-4">
-                <GoogleMap coord={weatherData.coord}/>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer">
-            <OtherStats weatherData={weatherData}/>
-          </div>
+        <div className="card-body text-light p-0">
+          <CityBanner weatherData={weatherData} />
+          <Temperature weatherData={weatherData} />
+          <WeatherDescription weatherData={weatherData} />
+          <OtherStats weatherData={weatherData}/>
         </div>
       ) 
     }

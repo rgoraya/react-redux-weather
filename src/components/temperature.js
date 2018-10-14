@@ -11,24 +11,25 @@ class Temperature extends Component {
 
   render() {
     return(
-      <div>
-        <div className="d-flex flex-row">
-          <h1 className="display-2 mb-0">
-            <i className={`mr-2 align-middle owf owf-${this.props.weatherData.weather[0].id}`}></i>
-            {this.tempInSelectedUnits(this.props.weatherData.main.temp)}
-          </h1>
-          <p className="mt-3 mb-0">
-            <button className={`btn btn-dark px-1 py-0 ${this.state.units === "F" ? "text-light" : "text-muted"}`} href="#"
-            onClick={ (e) => this.setState({units: "F"}) }>&deg;F</button>
-            <span >|</span>
-            <button className={`btn btn-dark px-1 py-0 ${this.state.units === "C" ? "text-light" : "text-muted"}`} href="C"
-            onClick={ (e) => this.setState({units: "C"}) }>&deg;C</button>
+      <div className="position-relative w-100 h-100">
+        <div id="tempContainer" className="text-center w-100 position-absolute">
+          <div id="tempCircle" className="d-flex flex-row justify-content-center mx-auto rounded-circle bg-light text-dark">
+            <h1 className="display-3 mb-0 align-self-center">
+              {this.tempInSelectedUnits(this.props.weatherData.main.temp)}
+            </h1>
+            <p className="m-0 align-self-center">
+              <button className={`btn btn-light border-0 px-1 py-0 ${this.state.units === "F" ? "text-info" : "text-muted"}`} href="#"
+              onClick={ (e) => this.setState({units: "F"}) }>&deg;F</button>
+              <span >|</span>
+              <button className={`btn btn-light border-0 px-1 py-0 ${this.state.units === "C" ? "text-info" : "text-muted"}`} href="C"
+              onClick={ (e) => this.setState({units: "C"}) }>&deg;C</button>
+            </p>
+          </div>
+          <p className="p-3">
+            High {this.tempInSelectedUnits(this.props.weatherData.main.temp_max)}&deg;{this.state.units} | 
+            Low {this.tempInSelectedUnits(this.props.weatherData.main.temp_min)}&deg;{this.state.units}
           </p>
         </div>
-        <p className="text-muted">
-          Max {this.tempInSelectedUnits(this.props.weatherData.main.temp_max)}&deg;{this.state.units} | 
-          Min {this.tempInSelectedUnits(this.props.weatherData.main.temp_min)}&deg;{this.state.units}
-        </p>
       </div>
     )
   }
