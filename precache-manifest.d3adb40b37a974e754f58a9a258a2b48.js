@@ -24,19 +24,19 @@ self.__precacheManifest = [
     "url": "/react-redux-weather/static/js/runtime~main.e1b08692.js"
   },
   {
-    "revision": "42d5e7f873b658b3ceef",
-    "url": "/react-redux-weather/static/js/main.42d5e7f8.chunk.js"
+    "revision": "da7ff209e1e34c24e5eb",
+    "url": "/react-redux-weather/static/js/main.da7ff209.chunk.js"
   },
   {
     "revision": "6a97e946c6873ed59180",
     "url": "/react-redux-weather/static/js/1.6a97e946.chunk.js"
   },
   {
-    "revision": "42d5e7f873b658b3ceef",
-    "url": "/react-redux-weather/static/css/main.a8e8850a.chunk.css"
+    "revision": "da7ff209e1e34c24e5eb",
+    "url": "/react-redux-weather/static/css/main.72c67ccc.chunk.css"
   },
   {
-    "revision": "96f5e471b2ddc490683030eb00579cd3",
+    "revision": "857b3e5b990177efbcb8785b468c9aaa",
     "url": "/react-redux-weather/index.html"
   }
 ];
